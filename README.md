@@ -4,4 +4,4 @@
 
 2.Uruchamianie projektu w react: npm start
 
-zmiana w index.html
+zmiana w index.html - dodaję bootstrap - taką bibliotekę do designu
