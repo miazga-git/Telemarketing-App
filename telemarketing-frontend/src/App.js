@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import FooterComponent from './Components/FooterComponent';
 import HeaderComponent from './Components/HeaderComponent';
 import ListProductsComponent from './Components/ListProductsComponent';
+import CreateProductComponent from './Components/CreateProductComponent';
+
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
               <HeaderComponent />
                   <div className="container">
                       <Switch>
-                          <Route path="/iteminfo" component={ListProductsComponent} ></Route>
+                      <Route path="/iteminfo" component={ListProductsComponent} ></Route>
+                      <Route path="/add-item" component={CreateProductComponent} ></Route>
                       </Switch>
                   </div>
               <FooterComponent />

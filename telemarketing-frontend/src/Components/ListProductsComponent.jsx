@@ -1,6 +1,12 @@
 // JavaScript source code
 import React, { Component } from 'react'
 import ProductService from '../Services/ProductService'
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch,
+} from "react-router-dom";
 
 
 class ListProductsComponent extends Component {
@@ -17,7 +23,9 @@ class ListProductsComponent extends Component {
         });
     }
     render() {
-        return(
+        return (
+            <div>
+                <button style={{ marginTop: "20px", marginLeft: "-15px", marginBottom: "40px" }} className="btn btn-outline-info"> <Link to="/add-item">Add item</Link></button>
                 <div className="row">
                     <table className="table table-striped table-bordered">
 
@@ -51,6 +59,7 @@ class ListProductsComponent extends Component {
 
                     </table>
                 </div>
+            </div>
         )
     }
 }

@@ -23,6 +23,8 @@ public class TelemarketingapiApplication {
                 repo.save(new Item("Lays Classic","Duża paczka",4.99,"https://pngimg.com/uploads/potato_chips/potato_chips_PNG79.png"));
                 repo.save(new Item("Heinz Ketchup","Tomato sauce",2.99,"https://pngimg.com/uploads/ketchup/ketchup_PNG65.png"));
                 repo.save(new Item("Caprio Juice","Perfect juice",2.49,"https://delidostawa.pl/1265-large_default/napoj-caprio-pomaranczowy-2-l.jpg"));
+                repo.save(new Item("Sprite","pyszny",5.49,"https://delikatesy-honorata.pl/wp-content/uploads/2019/07/sprite15.a.jpg"));
+
             }
         };
     }
