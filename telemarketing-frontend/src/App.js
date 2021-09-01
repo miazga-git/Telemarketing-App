@@ -5,7 +5,8 @@ import FooterComponent from './Components/FooterComponent';
 import HeaderComponent from './Components/HeaderComponent';
 import ListProductsComponent from './Components/ListProductsComponent';
 import CreateProductComponent from './Components/CreateProductComponent';
-
+import ListClientsComponent from './Components/ListClientsComponent';
+import CreateClientComponent from './Components/CreateClientComponent';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
                       <Switch>
                       <Route path="/iteminfo" component={ListProductsComponent} ></Route>
                       <Route path="/add-item" component={CreateProductComponent} ></Route>
+                      <Route path="/clientinfo" component={ListClientsComponent} ></Route>
+                      <Route path="/add-client" component={CreateClientComponent} ></Route>
                       </Switch>
                   </div>
               <FooterComponent />

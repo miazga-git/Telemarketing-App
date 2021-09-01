@@ -6,7 +6,10 @@
     "\\src\\main\\java",
     "\\src\\main\\java\\com",
     "\\src\\main\\java\\com\\example",
-    "\\src\\main\\java\\com\\example\\telemarketingapi"
+    "\\src\\main\\java\\com\\example\\telemarketingapi",
+    "\\src\\main\\java\\com\\example\\telemarketingapi\\Data",
+    "\\src\\main\\java\\com\\example\\telemarketingapi\\Rest",
+    "\\src\\main\\resources"
   ],
   "PreviewInSolutionExplorer": false
 }
