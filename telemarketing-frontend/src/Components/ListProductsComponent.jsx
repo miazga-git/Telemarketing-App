@@ -13,7 +13,9 @@ class ListProductsComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: []
+            chosenItem: '', 
+            items: [],
+            integer: ''
         }
     }
 
@@ -21,6 +23,26 @@ class ListProductsComponent extends Component {
         ProductService.getProducts().then((res) => {
             this.setState({ items: res.data });
         });
+        this.state.integer = 0
+    }
+    handleCallback = (childData) => {
+        this.setState({ chosenItem: childData })
+    }
+    sellProduct(item) {
+        let item_copy = {}
+        for (let key in item) {
+            item_copy[key] = item[key];
+        }
+        this.setState({
+            chosenItem: [...this.state.chosenItem, item_copy]
+        })
+        console.log("Wybrano item", this.state.chosenItem)
+        console.log("Przekazujemy id",item.id)
+        sessionStorage.setItem(this.state.integer, item.id)
+        this.state.integer = this.state.integer+1
+        console.log("Integer", this.state.integer)
+        this.props.history.push('/clientinfo')
+
     }
     render() {
         return (
@@ -49,7 +71,7 @@ class ListProductsComponent extends Component {
                                             <td>{item.price}</td>
                                             <td><img src={item.url} className="photo" /></td>
                                             <td>
-                                                {/*      <button onClick={() => this.buyProduct(item)} className="btn btn-info">Add to Cart</button>*/}
+                                                <button onClick={() => this.sellProduct(item)} className="btn btn-info">Sell</button>
                                             </td>
                                         </tr>
                                 )

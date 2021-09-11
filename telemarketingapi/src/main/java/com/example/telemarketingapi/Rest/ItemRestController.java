@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -21,6 +22,19 @@ public class ItemRestController {
         itemRepository.findAll().forEach(items::add);
         return items;
     }
+    //get item by id
+    @GetMapping("/api/iteminfo/{id}")
+    Optional<Item> findItem(@PathVariable Long id){
+        System.out.println("tutaj jestem ========================");
+        System.out.println("id:"+id);
+        System.out.println(itemRepository.findById(id));
+        //List<Item> items = new ArrayList<>();
+        //itemRepository.findById(id).forEach(items::add);
+        //return items;
+        return itemRepository.findById(id);
+
+    }
+
     //create item
     @PostMapping("/api/iteminfo")
     public Item createItem(@RequestBody Item item){

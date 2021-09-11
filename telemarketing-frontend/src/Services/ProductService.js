@@ -7,6 +7,9 @@ class ProductService {
     getProducts() {
         return axios.get(PRODUCTS_API_BASE_URL);
     }
+    getProduct(id) {
+        return axios.get(PRODUCTS_API_BASE_URL + '/' + id);
+    }
     createProduct(item) {
         return axios.post(PRODUCTS_API_BASE_URL, item)
     }
