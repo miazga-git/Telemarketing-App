@@ -16,6 +16,9 @@ class ClientService {
     getClients() {
         return axios.get(CLIENTS_API_BASE_URL);
     }
+    getClient(id) {
+        return axios.get(CLIENTS_API_BASE_URL + '/' + id);
+    }
     createClient(client) {
         return axios.post(CLIENTS_API_BASE_URL, client)
     }

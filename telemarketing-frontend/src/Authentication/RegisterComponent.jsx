@@ -57,7 +57,7 @@ class RegisterComponent extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label> Password: </label>
-                                        <input placeholder="Password" name="password" className="form-control" value={this.state.password} onChange={this.changePasswordHandler} />
+                                        <input placeholder="Password" type="password" name="password" className="form-control" value={this.state.password} onChange={this.changePasswordHandler} />
                                     </div>
                                     <button className="btm btn-success" onClick={this.saveUser}>Save</button>
                                     <button className="btm btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>

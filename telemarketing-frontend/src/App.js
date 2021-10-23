@@ -9,6 +9,8 @@ import ListClientsComponent from './Components/ListClientsComponent';
 import CreateClientComponent from './Components/CreateClientComponent';
 import LoginComponent from './Authentication/LoginComponent';
 import RegisterComponent from './Authentication/RegisterComponent';
+import CallTimeComponent from './Components/CallTimeComponent';
+
 function App() {
   return (
       <div> 
@@ -24,6 +26,7 @@ function App() {
                       <Route path="/add-item" component={CreateProductComponent} ></Route>
                       <Route path="/clientinfo" component={ListClientsComponent} ></Route>
                       <Route path="/add-client" component={CreateClientComponent} ></Route>
+                      <Route path="/calltime" component={CallTimeComponent} ></Route>
                       </Switch>
                   </div>
               <FooterComponent />

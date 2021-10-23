@@ -41,3 +41,72 @@
     text-align: center;
     color: white;
 }
+
+.form {
+    border-color: #ccc;
+    border-width: 1px;
+    padding: 16px;
+}
+
+.submit_button {
+    background-color: #0056ff;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 18px;
+    color: white;
+    border: none;
+}
+
+.input_box {
+    font-size: 18px;
+    padding-bottom: 12px;
+    margin-bottom: 36px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.social_icon {
+    width: 280px;
+    height: 170px;
+    padding-left: 40px;
+
+}
+
+#input_wrapper {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.input_container {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+form {
+    background-color: white;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.form_heading {
+    font-size: 32px;
+    padding-top: 56px;
+    padding-bottom: 32px;
+}
+
+#social_wrapper {
+    background-color: #f2f6ff;
+    padding: 24px;
+}

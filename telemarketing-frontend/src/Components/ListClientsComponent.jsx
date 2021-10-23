@@ -16,7 +16,9 @@ class ListClientsComponent extends Component {
         this.state = {
             clients: [],
             prod: [],
-            integer: ''
+            integerClient: 1,
+            integerItem: 1,
+            chosenClient: ''
         }
     }
 
@@ -25,15 +27,18 @@ class ListClientsComponent extends Component {
             this.setState({ clients: res.data });
         });
 
-        this.state.integer = 0
-        console.log('item=>' + sessionStorage.getItem(this.state.integer))
+        this.state.integerItem = 1
+        console.log('item=>' + sessionStorage.getItem('item' + this.state.integerItem))
 
 
-        ProductService.getProduct(sessionStorage.getItem(this.state.integer)).then((res) => {
+        ProductService.getProduct(sessionStorage.getItem('item' + this.state.integerItem)).then((res) => {
             this.setState({ prod: res.data });
             console.log('item=>wszedl' + res)
         });
-        this.state.integer = this.state.integer + 1
+        this.state.integerItem = this.state.integerItem + 1
+
+
+
         //this.setState({ item: this.props.chosenItem })
         //this.state.item = sessionStorage.getItem('klucz')<--<h1>{item.name}</h1>
         //console.log('item=>' + this.state.item.id)
@@ -42,6 +47,22 @@ class ListClientsComponent extends Component {
        // console.log('item=>' + this.state.item.url)
         //console.log('item=>' + this.state.item.price)
 
+    }
+
+    setClient(client) {
+        let client_copy = {}
+        for (let key in client) {
+            client_copy[key] = client[key];
+        }
+        this.setState({
+            chosenClient: [...this.state.chosenClient, client_copy]
+        })
+        console.log("Wybrano klienta", this.state.chosenClient)
+        console.log("Przekazujemy id", client.id)
+        sessionStorage.setItem('client' + this.state.integerClient, client.id)
+        this.state.integerClient = this.state.integerClient + 1
+        console.log("Integer", this.state.integerClient)
+        this.props.history.push('/calltime')
     }
     render() {
         return (
@@ -56,7 +77,6 @@ class ListClientsComponent extends Component {
                                 <th>Product Description</th>
                                 <th>Product Price</th>
                                 <th>Product Image</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
 
@@ -67,9 +87,7 @@ class ListClientsComponent extends Component {
                                     <td>{this.state.prod.description}</td>
                                     <td>{this.state.prod.price}</td>
                                     <td><img src={this.state.prod.url} className="photo" /></td>
-                                            <td>
-                                               
-                                            </td>
+
                                         </tr>
                             }
 
@@ -90,7 +108,6 @@ class ListClientsComponent extends Component {
                                 <th>Zip</th>
                                 <th>Number Of Children</th>
                                 <th>Age</th>
-                                <th>Job</th>
                                 <th>Job</th>
                                 <th>Action</th>
                             </tr>
@@ -114,7 +131,7 @@ class ListClientsComponent extends Component {
                                             <td>{client.job}</td>
 
                                             <td>
-                                                <button onClick={() => this.setClient(this.state.item)} className="btn btn-info">Add to Cart</button>
+                                                <button onClick={() => this.setClient(client)} className="btn btn-info">Wybierz klienta</button>
                                             </td>
                                         </tr>
                                 )

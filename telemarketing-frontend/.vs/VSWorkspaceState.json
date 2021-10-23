@@ -3,9 +3,11 @@
     "",
     "\\public",
     "\\src",
+    "\\src\\Authentication",
     "\\src\\Components",
+    "\\src\\Images",
     "\\src\\Services"
   ],
-  "SelectedNode": "\\src\\Components\\CreateClientComponent.jsx",
+  "SelectedNode": "\\src\\Authentication\\LoginComponent.jsx",
   "PreviewInSolutionExplorer": false
 }

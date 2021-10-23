@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
+import logo from '../Images/firmLogo3.png'
 
 class LoginComponent extends Component {
 
@@ -44,8 +44,8 @@ class LoginComponent extends Component {
     }
     loginClicked = (e) => {
 
-            e.preventDefault();
-            this.getAccessToken().then(data => {
+        e.preventDefault();
+        this.getAccessToken().then(data => {
 
             localStorage.setItem('token', data);
             this.props.history.push('/iteminfo')
@@ -59,38 +59,41 @@ class LoginComponent extends Component {
 
     render() {
         return (
+           // <body style={{ backgroundColor: "#f2f6ff" }}>
+                <form>
+                    <h1 class="form_heading">Login</h1>
 
-            <div>
-                <div classNAme="container" style={{ color: this.state.font }}>
-
-                    <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
-
-                            <h3 className="text-center">Login:</h3>
-
-
-                            <div classname="card-body">
-
-
-
-                                {this.state.hasLoginFailed && <div className="alert alert-warning">B³êdne dane logowania</div>}
-                                {this.state.showSuccessMessage && <div>Login Sucessful</div>}
-                                <label> Username: </label>
-                                <input placeholder="Username" name="username" className="form-control" value={this.state.username} onChange={this.handleChange} />
-
-
-                                <label> Password: </label>
-                                <input placeholder="Password" name="password" className="form-control" value={this.state.password} onChange={this.handleChange} />
-
-                                <button style={{ marginTop: "20px", marginBottom: "10px" }} className="btm btn-success" onClick={this.loginClicked}>Login</button>
-                                <button className="btm btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
-
-
-                            </div>
-                        </div>
+                    <div id="social_wrapper">
+                        <img class="social_icon" src={logo} alt="firm-logo" />
                     </div>
-                </div>
-            </div>
+
+                    <div id="input_wrapper">
+                        <div>
+                            <input class="input_box" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} />
+                            <br/>
+                        </div>
+
+                        <div>
+                            <input class="input_box" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
+                            <br/>
+				        </div>
+                        <div>
+                            <input class="input_box" type="password" name="confirm-password" placeholder="Confirm Password"/>
+                            <br/>
+				        </div>
+                        <div>
+                            <input class="submit_button" type="submit" onClick={this.loginClicked} value="Login"/>
+				        </div>
+                    </div>
+                </form>
+
+
+                 
+
+
+
+
+        //    </body>
 
         );
     }

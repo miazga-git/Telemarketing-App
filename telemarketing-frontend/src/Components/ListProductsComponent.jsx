@@ -15,7 +15,7 @@ class ListProductsComponent extends Component {
         this.state = {
             chosenItem: '', 
             items: [],
-            integer: ''
+            integerItem: 1
         }
     }
 
@@ -23,7 +23,7 @@ class ListProductsComponent extends Component {
         ProductService.getProducts().then((res) => {
             this.setState({ items: res.data });
         });
-        this.state.integer = 0
+        this.state.integerItem = 1
     }
     handleCallback = (childData) => {
         this.setState({ chosenItem: childData })
@@ -38,9 +38,9 @@ class ListProductsComponent extends Component {
         })
         console.log("Wybrano item", this.state.chosenItem)
         console.log("Przekazujemy id",item.id)
-        sessionStorage.setItem(this.state.integer, item.id)
-        this.state.integer = this.state.integer+1
-        console.log("Integer", this.state.integer)
+        sessionStorage.setItem('item' + this.state.integerItem, item.id)
+        this.state.integerItem = this.state.integerItem+1
+        console.log("Integer", this.state.integerItem)
         this.props.history.push('/clientinfo')
 
     }
