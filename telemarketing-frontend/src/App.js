@@ -7,7 +7,8 @@ import ListProductsComponent from './Components/ListProductsComponent';
 import CreateProductComponent from './Components/CreateProductComponent';
 import ListClientsComponent from './Components/ListClientsComponent';
 import CreateClientComponent from './Components/CreateClientComponent';
-
+import LoginComponent from './Authentication/LoginComponent';
+import RegisterComponent from './Authentication/RegisterComponent';
 function App() {
   return (
       <div> 
@@ -15,7 +16,10 @@ function App() {
 
               <HeaderComponent />
                   <div className="container">
-                      <Switch>
+                  <Switch>
+                
+                      <Route path="/register" component={RegisterComponent} ></Route>
+                      <Route path="/login" component={LoginComponent} ></Route>
                       <Route path="/iteminfo" component={ListProductsComponent} ></Route>
                       <Route path="/add-item" component={CreateProductComponent} ></Route>
                       <Route path="/clientinfo" component={ListClientsComponent} ></Route>

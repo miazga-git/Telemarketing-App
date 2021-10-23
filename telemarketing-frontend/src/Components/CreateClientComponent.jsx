@@ -96,7 +96,7 @@ class CreateClientComponent extends Component {
                                 <form>
                                     <div className="form-group">
                                         <label> Client Name: </label>
-                                        <input placeholder="Product Name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} />
+                                        <input placeholder="Client Name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} />
                                     </div>
                                     <div className="form-group">
                                         <label> Surname: </label>
