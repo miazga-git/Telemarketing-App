@@ -48,6 +48,7 @@ class LoginComponent extends Component {
         this.getAccessToken().then(data => {
 
             localStorage.setItem('token', data);
+            localStorage.setItem('user', this.state.username)
             this.props.history.push('/iteminfo')
 
         })
@@ -60,7 +61,7 @@ class LoginComponent extends Component {
     render() {
         return (
            // <body style={{ backgroundColor: "#f2f6ff" }}>
-                <form>
+                <form class="form_style">
                     <h1 class="form_heading">Login</h1>
 
                     <div id="social_wrapper">
@@ -75,10 +76,6 @@ class LoginComponent extends Component {
 
                         <div>
                             <input class="input_box" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
-                            <br/>
-				        </div>
-                        <div>
-                            <input class="input_box" type="password" name="confirm-password" placeholder="Confirm Password"/>
                             <br/>
 				        </div>
                         <div>

@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import ClientService from '../Services/ClientService'
 import ProductService from '../Services/ProductService'
+import TransactionService from '../Services/TransactionService'
 import {
     BrowserRouter as Router,
     Route,
@@ -17,8 +18,16 @@ class CallTimeComponent extends Component {
             client: [],
             prod: [],
             integerClient: 1,
-            integerItem: 1
+            integerItem: 1,
+            interval: '',
+            freeSecounds: 11,
+            freeMinutes: 0
+
         }
+        this.functions = this.functions.bind(this);
+        this.timer = this.timer.bind(this);
+        this.saveTransaction = this.saveTransaction.bind(this);
+        
     }
 
     componentDidMount() {
@@ -26,6 +35,7 @@ class CallTimeComponent extends Component {
 
         ProductService.getProduct(sessionStorage.getItem('item' + this.state.integerItem)).then((res) => {
             this.setState({ prod: res.data });
+            console.log("Response:"+res.data)
         });
         this.state.integerItem = this.state.integerItem + 1
 
@@ -34,8 +44,52 @@ class CallTimeComponent extends Component {
             this.setState({ client: res.data });
         });
         this.state.integerClient = this.state.integerClient + 1
+
+        this.timer()
     }
 
+    saveTransaction(isSuccessful){
+        //e.preventDefault();
+        let transaction = { itemId: this.state.prod.id, clientId: this.state.client.id, userName: localStorage.getItem("user"), quantity: 1, successful: isSuccessful };
+        TransactionService.createTransaction(transaction).then(res => {
+            clearInterval(this.state.interval)
+                this.props.history.push('/iteminfo');
+            });
+        
+
+    }
+    functions(interval) {
+        console.log("jestem2")
+        this.state.freeSecounds = this.state.freeSecounds - 1;
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        if (this.state.freeSecounds == 0 && this.state.freeMinutes == 0) {
+            console.log("end of time")
+            clearInterval(this.state.interval)
+            this.saveTransaction(false)
+
+        } else {
+            if (this.state.freeSecounds == 0) {
+                this.state.freeMinutes = this.state.freeMinutes - 1;
+                this.state.freeSecounds = 60;
+            }
+        }
+        console.log(this.state.freeSecounds)
+
+
+        document.getElementById('time').innerHTML = addZero(this.state.freeMinutes) + " : " + addZero(this.state.freeSecounds);
+    }
+    timer() {
+    document.getElementById('time').style.visibility = 'visible';
+
+
+        var interval = setInterval(this.functions, 1000);
+        this.state.interval = interval;
+}
 
     render() {
         return (
@@ -106,8 +160,10 @@ class CallTimeComponent extends Component {
                         </tbody>
 
                     </table>
-                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-success"> <Link to="/iteminfo">I did it!</Link></button>
-                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-danger"> <Link to="/iteminfo">Maybe next time</Link></button>
+                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-success" onClick={() => this.saveTransaction(true)}> I did it!</button>
+                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-danger" onClick={() => this.saveTransaction(false)}> Maybe next time</button>
+                    <script src="C:\Users\ACER\Documents\GitHub\TelemarketingAplikacja\telemarketing-frontend\src\Components\timerScript.js"></script>
+                    <p id="time"></p>
                 </div>
             </div>
         )

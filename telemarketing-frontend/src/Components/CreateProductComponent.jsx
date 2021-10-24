@@ -37,7 +37,7 @@ class CreateProductComponent extends Component {
             console.log('item=>' + JSON.stringify(item));
 
             ProductService.createProduct(item).then(res => {
-                this.props.history.push('iteminfo');
+                this.props.history.push('/iteminfo');
             });
         }
 

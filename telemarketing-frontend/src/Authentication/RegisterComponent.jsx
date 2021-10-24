@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import logo from '../Images/firmLogo3.png'                      
+
 
 class RegisterComponent extends Component {
     constructor(props) {
@@ -8,12 +10,16 @@ class RegisterComponent extends Component {
         this.state = {
             username: '',
             password: '',
+            surname: '',
+            firstName: '',
             font: 'black'
 
         }
         this.saveUser = this.saveUser.bind(this);
         this.changeUsernameHandler = this.changeUsernameHandler.bind(this);
         this.changePasswordHandler = this.changePasswordHandler.bind(this);
+        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
+        this.changeSurnameHandler = this.changeSurnameHandler.bind(this);
         this.cancel = this.cancel.bind(this);
     }
     componentDidMount() {
@@ -23,7 +29,7 @@ class RegisterComponent extends Component {
     }
     saveUser = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/api/auth/register', { "username": this.state.username, "password": this.state.password })
+        axios.post('http://localhost:8080/api/auth/register', { "username": this.state.username, "password": this.state.password, "firstName": this.state.firstName, "surname": this.state.surname })
         this.props.history.push('/login');
 
     }
@@ -33,6 +39,12 @@ class RegisterComponent extends Component {
     changePasswordHandler = (event) => {
         this.setState({ password: event.target.value });
     }
+    changeFirstNameHandler = (event) => {
+        this.setState({ firstName: event.target.value });
+    }
+    changeSurnameHandler = (event) => {
+        this.setState({ surname: event.target.value });
+    }
 
     cancel() {
         this.props.history.push('/login');
@@ -40,33 +52,42 @@ class RegisterComponent extends Component {
 
     render() {
         return (
-            <div>
-                <div classNAme="container" style={{ color: this.state.font }}>
-                    <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
+            <form class="form_style">
+                    <h1 class="form_heading">Register</h1>
 
-                            <h3 className="text-center">Zarejestruj sie:</h3>
-
-
-                            <div classname="card-body">
-                                <form>
-
-                                    <div className="form-group">
-                                        <label> Username: </label>
-                                        <input placeholder="Username" name="username" className="form-control" value={this.state.username} onChange={this.changeUsernameHandler} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label> Password: </label>
-                                        <input placeholder="Password" type="password" name="password" className="form-control" value={this.state.password} onChange={this.changePasswordHandler} />
-                                    </div>
-                                    <button className="btm btn-success" onClick={this.saveUser}>Save</button>
-                                    <button className="btm btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
-                                </form>
-                            </div>
-                        </div>
+                    <div id="social_wrapper">
+                        <img class="social_icon" src={logo} alt="firm-logo" />
                     </div>
-                </div>
-            </div>
+
+                    <div id="input_wrapper">
+                        <div>
+                            <input class="input_box" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeUsernameHandler} />
+                            <br/>
+                        </div>
+                    <div>
+                        <input class="input_box" type="text" name="firstName" placeholder="FirstName" value={this.state.firstName} onChange={this.changeFirstNameHandler} />
+                        <br />
+                    </div>
+                    <div>
+                        <input class="input_box" type="text" name="surname" placeholder="Surname" value={this.state.surname} onChange={this.changeSurnameHandler} />
+                        <br />
+                    </div>
+                        <div>
+                            <input class="input_box" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.changePasswordHandler} />
+                            <br/>
+                    </div>
+                    <div>
+                        <input class="input_box" type="password" name="confirm-password" placeholder="Confirm Password" />
+                        <br />
+                    </div>
+                        <div>
+                            <input class="submit_button" type="submit" onClick={this.saveUser} value="Register"/>
+                            <input class="cancel_button" type="submit" onClick={this.cancel.bind(this)} value="Cancel"/>
+				        </div>
+                    </div>
+                </form>
+
+
         )
     }
 }

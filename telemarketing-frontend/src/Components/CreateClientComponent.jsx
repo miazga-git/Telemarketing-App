@@ -76,13 +76,13 @@ class CreateClientComponent extends Component {
             console.log('item=>' + JSON.stringify(client));
 
             ClientService.createClient(client).then(res => {
-                this.props.history.push('clientinfo');
+                this.props.history.push('iteminfo');
             });
         }
 
     }
     cancel() {
-        this.props.history.push('/clientinfo');
+        this.props.history.push('/iteminfo');
     }
 
     render() {
@@ -95,35 +95,35 @@ class CreateClientComponent extends Component {
                             <div classname="card-body">
                                 <form>
                                     <div className="form-group">
-                                        <label> Client Name: </label>
+                                        <label> Client Name*: </label>
                                         <input placeholder="Client Name" name="name" className="form-control" value={this.state.name} onChange={this.changeNameHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> Surname: </label>
+                                        <label> Surname*: </label>
                                         <input placeholder="Surname" name="surname" className="form-control" value={this.state.surname} onChange={this.changeSurnameHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> TelephoneNumber: </label>
+                                        <label> TelephoneNumber*: </label>
                                         <input placeholder="TelephoneNumber" name="telephoneNumber" className="form-control" value={this.state.price} onChange={this.changeTelephoneNumberHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> Email: </label>
+                                        <label> Email*: </label>
                                         <input placeholder="Email" name="email" className="form-control" value={this.state.url} onChange={this.changeEmailHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> State: </label>{/*tu moze byc blad jak cos*/}
+                                        <label> State*: </label>{/*tu moze byc blad jak cos*/}
                                         <input placeholder="State" name="state" className="form-control" value={this.state.state} onChange={this.changeStateHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> Street: </label>
+                                        <label> Street*: </label>
                                         <input placeholder="Street" name="street" className="form-control" value={this.state.street} onChange={this.changeStreetHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> City: </label>
+                                        <label> City*: </label>
                                         <input placeholder="City" name="city" className="form-control" value={this.state.city} onChange={this.changeCityHandler} />
                                     </div>
                                     <div className="form-group">
-                                        <label> Zip: </label>
+                                        <label> Zip*: </label>
                                         <input placeholder="Zip" name="zip" className="form-control" value={this.state.zip} onChange={this.changeZipHandler} />
                                     </div>
                                     <div className="form-group">

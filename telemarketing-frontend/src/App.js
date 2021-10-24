@@ -13,14 +13,13 @@ import CallTimeComponent from './Components/CallTimeComponent';
 
 function App() {
   return (
-      <div> 
+      <div > 
           <Router>
 
               <HeaderComponent />
-                  <div className="container">
+              <div className="container">
                   <Switch>
-                
-                      <Route path="/register" component={RegisterComponent} ></Route>
+                  <Route path="/" exact component={RegisterComponent} ></Route> 
                       <Route path="/login" component={LoginComponent} ></Route>
                       <Route path="/iteminfo" component={ListProductsComponent} ></Route>
                       <Route path="/add-item" component={CreateProductComponent} ></Route>

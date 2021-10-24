@@ -47,7 +47,7 @@ class ListProductsComponent extends Component {
     render() {
         return (
             <div>
-                <button style={{ marginTop: "20px", marginLeft: "-15px", marginBottom: "40px" }} className="btn btn-outline-info"> <Link to="/add-item">Add item</Link></button>
+               
                 <div className="row">
                     <table className="table table-striped table-bordered">
 
