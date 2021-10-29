@@ -20,8 +20,9 @@ class CallTimeComponent extends Component {
             integerClient: 1,
             integerItem: 1,
             interval: '',
-            freeSecounds: 11,
-            freeMinutes: 0
+            freeSecounds: 31,
+            freeMinutes: 0,
+            discount : 0
 
         }
         this.functions = this.functions.bind(this);
@@ -50,7 +51,8 @@ class CallTimeComponent extends Component {
 
     saveTransaction(isSuccessful){
         //e.preventDefault();
-        let transaction = { itemId: this.state.prod.id, clientId: this.state.client.id, userName: localStorage.getItem("user"), quantity: 1, successful: isSuccessful };
+        console.log(this.state.discount)
+        let transaction = { itemId: this.state.prod.id, clientId: this.state.client.id, userName: localStorage.getItem("user"), quantity: 1, successful: isSuccessful, discount: this.state.discount };
         TransactionService.createTransaction(transaction).then(res => {
             clearInterval(this.state.interval)
                 this.props.history.push('/iteminfo');
@@ -82,6 +84,10 @@ class CallTimeComponent extends Component {
 
 
         document.getElementById('time').innerHTML = addZero(this.state.freeMinutes) + " : " + addZero(this.state.freeSecounds);
+    }
+    addDiscount() {
+        this.state.discount = 20;
+
     }
     timer() {
     document.getElementById('time').style.visibility = 'visible';
@@ -161,8 +167,9 @@ class CallTimeComponent extends Component {
 
                     </table>
                     <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-success" onClick={() => this.saveTransaction(true)}> I did it!</button>
+                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-warning" onClick={() => this.addDiscount()}> Give 20% discount</button>
                     <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-danger" onClick={() => this.saveTransaction(false)}> Maybe next time</button>
-                    <script src="C:\Users\ACER\Documents\GitHub\TelemarketingAplikacja\telemarketing-frontend\src\Components\timerScript.js"></script>
+                   
                     <p id="time"></p>
                 </div>
             </div>

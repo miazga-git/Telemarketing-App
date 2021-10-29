@@ -12,7 +12,8 @@ class RegisterComponent extends Component {
             password: '',
             surname: '',
             firstName: '',
-            font: 'black'
+            font: 'black',
+            accept: 'false'
 
         }
         this.saveUser = this.saveUser.bind(this);
@@ -21,18 +22,44 @@ class RegisterComponent extends Component {
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
         this.changeSurnameHandler = this.changeSurnameHandler.bind(this);
         this.cancel = this.cancel.bind(this);
+ 
     }
     componentDidMount() {
         var font = localStorage.getItem('layout')
         console.log(font);
         this.setState({ font: font })
+
     }
     saveUser = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/api/auth/register', { "username": this.state.username, "password": this.state.password, "firstName": this.state.firstName, "surname": this.state.surname })
-        this.props.history.push('/login');
+        this.validationFunction();
+        var usernameErrPara = document.getElementById("username-err");
+
+        if (usernameErrPara.style.display == 'none' && this.state.username != '') {
+            axios.post('http://localhost:8080/api/auth/register', { "username": this.state.username, "password": this.state.password, "firstName": this.state.firstName, "surname": this.state.surname })
+            this.props.history.push('/');
+        }
+
 
     }
+    validationFunction() {
+        var username = document.getElementById('username')
+        var usernameErrPara = document.getElementById("username-err");
+        username.addEventListener('input', function (e) {
+            var pattern = /^[\w]{6,8}$/;
+            var currentValue = e.target.value;
+            console.log(pattern.test(currentValue))
+
+            if (pattern.test(currentValue)) {
+                usernameErrPara.style.display = 'none'
+                
+            } else {
+                usernameErrPara.style.display = 'block'
+               
+            }
+        })
+    }
+
     changeUsernameHandler = (event) => {
         this.setState({ username: event.target.value });
     }
@@ -47,7 +74,7 @@ class RegisterComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/login');
+        this.props.history.push('/');
     }
 
     render() {
@@ -59,9 +86,11 @@ class RegisterComponent extends Component {
                         <img class="social_icon" src={logo} alt="firm-logo" />
                     </div>
 
-                    <div id="input_wrapper">
-                        <div>
-                            <input class="input_box" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeUsernameHandler} />
+                <div id="input_wrapper">
+                    
+                    <div>
+                        <p id="username-err"> Please enter a vaild Username</p>
+                        <input class="input_box" id="username" type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.changeUsernameHandler} />
                             <br/>
                         </div>
                     <div>
@@ -80,6 +109,7 @@ class RegisterComponent extends Component {
                         <input class="input_box" type="password" name="confirm-password" placeholder="Confirm Password" />
                         <br />
                     </div>
+
                         <div>
                             <input class="submit_button" type="submit" onClick={this.saveUser} value="Register"/>
                             <input class="cancel_button" type="submit" onClick={this.cancel.bind(this)} value="Cancel"/>

@@ -18,6 +18,15 @@ class ProductService {
     createTransaction(transaction) {
         return axios.post(TRANSACTIONS_API_BASE_URL, transaction)
     }
+    getTransactions() {
+        return axios.get(TRANSACTIONS_API_BASE_URL);
+    }
+    getStatistics() {
+        return axios.get(TRANSACTIONS_API_BASE_URL+ '/statistics');
+    }
+    getStatisticsPerItems() {
+        return axios.get(TRANSACTIONS_API_BASE_URL + '/statistics/perItems');
+    }
 }
 
 export default new ProductService()

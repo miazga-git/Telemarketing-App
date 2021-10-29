@@ -10,7 +10,7 @@ import CreateClientComponent from './Components/CreateClientComponent';
 import LoginComponent from './Authentication/LoginComponent';
 import RegisterComponent from './Authentication/RegisterComponent';
 import CallTimeComponent from './Components/CallTimeComponent';
-
+import ListTransactionsComponent from './Components/ListTransactionsComponent';
 function App() {
   return (
       <div > 
@@ -19,13 +19,14 @@ function App() {
               <HeaderComponent />
               <div className="container">
                   <Switch>
-                  <Route path="/" exact component={RegisterComponent} ></Route> 
-                      <Route path="/login" component={LoginComponent} ></Route>
+                  <Route path="/" exact component={LoginComponent} ></Route> 
+                      <Route path="/register" component={RegisterComponent} ></Route>
                       <Route path="/iteminfo" component={ListProductsComponent} ></Route>
                       <Route path="/add-item" component={CreateProductComponent} ></Route>
                       <Route path="/clientinfo" component={ListClientsComponent} ></Route>
                       <Route path="/add-client" component={CreateClientComponent} ></Route>
                       <Route path="/calltime" component={CallTimeComponent} ></Route>
+                      <Route path="/transactions" component={ListTransactionsComponent} ></Route>
                       </Switch>
                   </div>
               <FooterComponent />

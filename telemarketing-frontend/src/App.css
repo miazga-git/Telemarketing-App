@@ -121,3 +121,20 @@
     background-color: #f2f6ff;
     padding: 24px;
 }
+
+.succeed {
+    color: green ;
+    font-weight: bold;
+}
+.defeat {
+    color: red ;
+    font-weight: bold;
+}
+#username-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+}

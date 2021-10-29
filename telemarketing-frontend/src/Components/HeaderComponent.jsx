@@ -16,7 +16,7 @@ class HeaderComponent extends Component {
     }
     logout() {
         localStorage.removeItem("token")
-        this.props.history.push('/login')
+        this.props.history.push('/')
     }
 
     goMainPanel() {
@@ -28,6 +28,9 @@ class HeaderComponent extends Component {
     goAddClient() {
         this.props.history.push('/add-client')
     }
+    goTransactionsPanel() {
+        this.props.history.push('/transactions')
+    }
     render() {
         if (localStorage.getItem('token') != undefined) {
             return (
@@ -36,8 +39,9 @@ class HeaderComponent extends Component {
                         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                             <div><a className="navbar-brand">Aplikacja wspierajaca promocje telemarketingowe</a>
 
-
-                                <button className="btn btn-info" style={{ marginLeft: "500px" }} onClick={() => this.goMainPanel()}   >Main Panel</button>
+                                
+                                <button className="btn btn-info" style={{ marginLeft: "320px" }} onClick={() => this.goMainPanel()}   >Main Panel</button>
+                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goTransactionsPanel()}   >Transactions Stats</button>
                                 <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goAddItem()}   >Add Item</button>
                                 <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goAddClient()}   >Add Client</button>
                                 <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.logout()}   >Logout</button>

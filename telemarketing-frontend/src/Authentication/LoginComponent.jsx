@@ -57,6 +57,10 @@ class LoginComponent extends Component {
 
     }
 
+    goRegister() {
+        this.props.history.push('/register')
+    }
+
 
     render() {
         return (
@@ -79,7 +83,8 @@ class LoginComponent extends Component {
                             <br/>
 				        </div>
                         <div>
-                            <input class="submit_button" type="submit" onClick={this.loginClicked} value="Login"/>
+                        <input class="submit_button" type="submit" onClick={this.loginClicked} value="Login" />
+                        <input class="cancel_button" type="submit" onClick={() => this.goRegister()}  value="Register" />
 				        </div>
                     </div>
                 </form>
