@@ -32,7 +32,7 @@ class HeaderComponent extends Component {
         this.props.history.push('/transactions')
     }
     render() {
-        if (localStorage.getItem('token') != undefined) {
+      if (localStorage.getItem('token') != undefined) {
             return (
                 <div>
                     <header>

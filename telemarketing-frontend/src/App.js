@@ -13,11 +13,11 @@ import CallTimeComponent from './Components/CallTimeComponent';
 import ListTransactionsComponent from './Components/ListTransactionsComponent';
 function App() {
   return (
-      <div > 
+      <div className="tlo_color_fixed"> 
           <Router>
 
               <HeaderComponent />
-              <div className="container">
+              <div className="container ">
                   <Switch>
                   <Route path="/" exact component={LoginComponent} ></Route> 
                       <Route path="/register" component={RegisterComponent} ></Route>

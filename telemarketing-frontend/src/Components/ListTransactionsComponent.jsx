@@ -27,9 +27,9 @@ class ListTransactionsComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <div>
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table_color">
 
                         <thead>
                             <tr>
@@ -55,7 +55,7 @@ class ListTransactionsComponent extends Component {
                     </table>
                 </div>
                 <div>
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table_color">
 
                         <thead>
                             <tr>
@@ -82,7 +82,7 @@ class ListTransactionsComponent extends Component {
                     </table>
                 </div>
                 <div className="row">
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table_color">
 
                         <thead>
                             <tr>

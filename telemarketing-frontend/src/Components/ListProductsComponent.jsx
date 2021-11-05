@@ -46,10 +46,10 @@ class ListProductsComponent extends Component {
     }
     render() {
         return (
-            <div>
+            <div >
                
-                <div className="row">
-                    <table className="table table-striped table-bordered">
+                <div className="row table_color ">
+                    <table className="table table-striped table-bordered ">
 
                         <thead>
                             <tr>

@@ -24,14 +24,6 @@
     width: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .footer {
     position: fixed;
     bottom: 0;
@@ -137,4 +129,56 @@
     margin-top: 0px;
     margin-bottom: 24px;
     display: none;
+}
+#firstname-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+}
+#surname-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+}
+#password-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+}
+#confirmPassword-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.tlo_color {
+    background-color: deepskyblue;
+    height: 100%;
+    width: 100%;
+}
+.tlo_color_fixed {
+    background-color: deepskyblue;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-behavior:auto;
+}
+.xtlo_color {
+    background-color: deeppink;
+}
+.table_color{
+    background-color: aliceblue;
 }

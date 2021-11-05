@@ -89,6 +89,10 @@ class CallTimeComponent extends Component {
         this.state.discount = 20;
 
     }
+
+
+
+
     timer() {
     document.getElementById('time').style.visibility = 'visible';
 

@@ -11,7 +11,7 @@ class FooterComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="tlo_color">
                 <footer className="footer">
                     <span className="text-muted">Autorem aplikacji jest Bartosz Miazga</span>
                 </footer>

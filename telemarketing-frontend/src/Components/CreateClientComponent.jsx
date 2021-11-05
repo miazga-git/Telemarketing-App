@@ -88,7 +88,7 @@ class CreateClientComponent extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="tlo_color_fixed" className="container">
                     <div className="row" >
                         <div className="card col-md-6 offset-md-3 offset-md-3">
                             <h3 className="text-center">Add Client to Application:</h3>
