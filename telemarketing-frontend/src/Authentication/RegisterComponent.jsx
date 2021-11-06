@@ -13,7 +13,6 @@ class RegisterComponent extends Component {
             surname: '',
             firstName: '',
             confirmPassword: '',
-            font: 'black',
             accept: 'false'
 
         }
@@ -27,9 +26,6 @@ class RegisterComponent extends Component {
  
     }
     componentDidMount() {
-        var font = localStorage.getItem('layout')
-        console.log(font);
-        this.setState({ font: font })
         this.usernameValidationFunction();
         this.firstnameValidationFunction();
         this.surnameValidationFunction();

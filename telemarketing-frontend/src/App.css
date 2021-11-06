@@ -162,7 +162,77 @@
     margin-bottom: 24px;
     display: none;
 }
-
+#auth-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+}
+#discount-info {
+    color: black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#notNullFields-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#item-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#name-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#description-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#price-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#url-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
 .tlo_color {
     background-color: deepskyblue;
     height: 100%;

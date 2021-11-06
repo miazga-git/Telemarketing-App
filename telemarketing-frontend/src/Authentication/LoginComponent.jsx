@@ -45,15 +45,20 @@ class LoginComponent extends Component {
     loginClicked = (e) => {
 
         e.preventDefault();
+        if (this.getAccessToken() == null || this.getAccessToken() == '' || this.getAccessToken() == undefined) {
+            console.log("OUT!!!")
+        }
         this.getAccessToken().then(data => {
-
+            console.log("Wszedlem tutaj")
             localStorage.setItem('token', data);
-            localStorage.setItem('user', this.state.username)
+           // localStorage.setItem('user', this.state.username)
             this.props.history.push('/iteminfo')
 
+        }).catch(() => {
+            console.log("Wyjatek")
+            var authErrPara = document.getElementById("auth-err");
+            authErrPara.style.display = 'block'
         })
-
-
 
     }
 
@@ -81,7 +86,8 @@ class LoginComponent extends Component {
                         <div>
                             <input class="input_box" type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                             <br/>
-				        </div>
+                        </div>
+                    <p id="auth-err">Please enter valid credentials</p>
                         <div>
                         <input class="submit_button" type="submit" onClick={this.loginClicked} value="Login" />
                         <input class="cancel_button" type="submit" onClick={() => this.goRegister()}  value="Register" />

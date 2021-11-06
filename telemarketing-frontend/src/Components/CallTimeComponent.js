@@ -20,8 +20,8 @@ class CallTimeComponent extends Component {
             integerClient: 1,
             integerItem: 1,
             interval: '',
-            freeSecounds: 31,
-            freeMinutes: 0,
+            freeSecounds: 30,
+            freeMinutes: 5,
             discount : 0
 
         }
@@ -87,6 +87,8 @@ class CallTimeComponent extends Component {
     }
     addDiscount() {
         this.state.discount = 20;
+        var discountErrPara = document.getElementById("discount-info");
+        discountErrPara.style.display = 'block'
 
     }
 
@@ -172,6 +174,7 @@ class CallTimeComponent extends Component {
                     </table>
                     <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-success" onClick={() => this.saveTransaction(true)}> I did it!</button>
                     <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-warning" onClick={() => this.addDiscount()}> Give 20% discount</button>
+                    <p id="discount-info"> Discount added to transaction </p>
                     <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-danger" onClick={() => this.saveTransaction(false)}> Maybe next time</button>
                    
                     <p id="time"></p>

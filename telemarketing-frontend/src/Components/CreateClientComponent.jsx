@@ -65,8 +65,10 @@ class CreateClientComponent extends Component {
     }
     saveItem = (e) => {
         e.preventDefault();
-        if (this.state.name == "hipopotam") {// tu wstawiê w przysz³oœci wyr. regularne , które bêd¹ sprawdza³y sens wype³nionych pól
-            console.log('Nazwa jest hipopotamem');
+        var fieldsNotNullErrPara = document.getElementById("notNullFields-err");
+        if (this.state.name == '' || this.state.surname == '' || this.state.telephoneNumber == '' || this.state.email == '' ||
+            this.state.state == '' || this.state.street == '' || this.state.city == '' || this.state.zip == '') {
+            fieldsNotNullErrPara.style.display = 'block';
         } else {
             let client = {
                 name: this.state.name, surname: this.state.surname, telephoneNumber: this.state.telephoneNumber,
@@ -138,6 +140,7 @@ class CreateClientComponent extends Component {
                                         <label> Job: </label>
                                         <input placeholder="Job" name="job" className="form-control" value={this.state.job} onChange={this.changeJobHandler} />
                                     </div>
+                                    <p id="notNullFields-err"> Please fill all fields marked as * </p>
                                     <button className="btm btn-success" onClick={this.saveItem}>Save</button>
                                     <button className="btm btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                 </form>
