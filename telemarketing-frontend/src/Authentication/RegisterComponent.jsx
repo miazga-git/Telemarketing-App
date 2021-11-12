@@ -56,9 +56,15 @@ class RegisterComponent extends Component {
         } 
         if (usernameErrPara.style.display == 'none' && this.state.username != '' && firstnameErrPara.style.display == 'none' && this.state.firstname != ''
             && surnameErrPara.style.display == 'none' && this.state.surname != '' && passwordErrPara.style.display == 'none' && this.state.password != ''
-            && this.state.confirmPassword != '' && confirmPasswordErrPara.style.display == 'none' ) {
-            axios.post('http://localhost:8080/api/auth/register', { "username": this.state.username, "password": this.state.password, "firstName": this.state.firstName, "surname": this.state.surname })
-            this.props.history.push('/');
+            && this.state.confirmPassword != '' && confirmPasswordErrPara.style.display == 'none') {
+            axios.post('http://localhost:8080/api/auth/register', { "username": this.state.username, "password": this.state.password, "firstName": this.state.firstName, "surname": this.state.surname }).then(res => {
+                this.props.history.push('/')
+            }).catch (() => {
+                var userErrPara = document.getElementById("user-err");
+                userErrPara.style.display = 'block'
+                //console.log('siema')
+                })
+            
         }
 
 
@@ -66,11 +72,13 @@ class RegisterComponent extends Component {
     usernameValidationFunction() {
         var username = document.getElementById('username')
         var usernameErrPara = document.getElementById("username-err");
+        var userExistsErrPara = document.getElementById("user-err");
         username.addEventListener('input', function (e) {
-            var pattern = /^[\w]{6,8}$/;
+            var pattern = /^[¥ÊÆ¯Ó¹êæŸ¿ó\w]{6,8}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 usernameErrPara.style.display = 'none'
+                userExistsErrPara.style.display = 'none'
             } else { usernameErrPara.style.display = 'block' }
         })
     }
@@ -78,7 +86,7 @@ class RegisterComponent extends Component {
         var username = document.getElementById('firstname')
         var usernameErrPara = document.getElementById("firstname-err");
         username.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,20}$/;
+            var pattern = /^[¥ÊÆ¯Ó¹êæŸ¿ó\w]{3,20}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 usernameErrPara.style.display = 'none'
@@ -89,7 +97,7 @@ class RegisterComponent extends Component {
         var username = document.getElementById('surname')
         var usernameErrPara = document.getElementById("surname-err");
         username.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,20}$/;
+            var pattern = /^[¥ÊÆ¯Ó¹êæŸ¿ó\w]{3,20}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 usernameErrPara.style.display = 'none'
@@ -173,10 +181,12 @@ class RegisterComponent extends Component {
                     <div>
                         <input class="input_box" id="confirmPassword" type="password" name="confirm-password" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.changeConfirmPassword}/>
                         <p id="confirmPassword-err"> Please enter valid password </p>
+                        
                         <br />
                     </div>
 
-                        <div>
+                    <div>
+                        <p id="user-err"> This username already exists </p>
                             <input class="submit_button" type="submit" onClick={this.saveUser} value="Register"/>
                             <input class="cancel_button" type="submit" onClick={this.cancel.bind(this)} value="Cancel"/>
 				        </div>

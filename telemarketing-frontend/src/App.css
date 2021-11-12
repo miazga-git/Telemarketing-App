@@ -197,6 +197,15 @@
     display: none;
     text-align: center;
 }
+#client-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
 #name-err {
     color: red;
     font-size: 16px;
@@ -225,6 +234,105 @@
     text-align: center;
 }
 #url-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#surname2-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#tel-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#email-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#state-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#street-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#city-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#zip-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#children-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#age-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#job-err {
+    color: red;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    display: none;
+    text-align: center;
+}
+#user-err {
     color: red;
     font-size: 16px;
     letter-spacing: 1px;

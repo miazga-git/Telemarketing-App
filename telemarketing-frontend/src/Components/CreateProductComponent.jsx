@@ -36,10 +36,14 @@ class CreateProductComponent extends Component {
     }
     saveItem = (e) => {
         e.preventDefault();
+        var nameErrPara = document.getElementById("name-err");
+        var descErrPara = document.getElementById("description-err");
+        var priceErrPara = document.getElementById("price-err");
+        var urlErrPara = document.getElementById("url-err");
         var fieldsNotNullErrPara = document.getElementById("notNullFields-err");
-        if (this.state.name == '' || this.state.description == '' || this.state.price == '' || this.state.url == '') {// tu wstawiÍ w przysz≥oúci wyr. regularne , ktÛre bÍdπ sprawdza≥y sens wype≥nionych pÛl
+        if (this.state.name == '' || this.state.description == '' || this.state.price == '' || this.state.url == '' ) {// tu wstawiÍ w przysz≥oúci wyr. regularne , ktÛre bÍdπ sprawdza≥y sens wype≥nionych pÛl
             fieldsNotNullErrPara.style.display = 'block';
-        } else {
+        } else if(nameErrPara.style.display != 'block' && descErrPara.style.display != 'block' && priceErrPara.style.display != 'block' && urlErrPara.style.display != 'block') {
             let item = { name: this.state.name, description: this.state.description, price: this.state.price, url: this.state.url };
             console.log('item=>' + JSON.stringify(item));
 
@@ -52,13 +56,13 @@ class CreateProductComponent extends Component {
         }
 
     }
-    nameValidationFunction() {//gut
+    nameValidationFunction() {
         var name = document.getElementById('name')
         var nameErrPara = document.getElementById("name-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         var itemErrPara = document.getElementById("item-err");
         name.addEventListener('input', function (e) {
-            var pattern = /^[\w\ ]{3,25}$/;
+            var pattern = /^[• ∆èØ”πÍÊüøÛ\w\ ]{3,25}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 nameErrPara.style.display = 'none'
@@ -67,12 +71,12 @@ class CreateProductComponent extends Component {
             } else { nameErrPara.style.display = 'block' }
         })
     }
-    descValidationFunction() {//gut
+    descValidationFunction() {
         var desc = document.getElementById('description')
         var descErrPara = document.getElementById("description-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         desc.addEventListener('input', function (e) {
-            var pattern = /^[\w\ ]{6,50}$/;
+            var pattern = /^[\w\ ,]{6,50}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 descErrPara.style.display = 'none'
@@ -80,7 +84,7 @@ class CreateProductComponent extends Component {
             } else { descErrPara.style.display = 'block' }
         })
     }
-    priceValidationFunction() {//do poprawki kropka
+    priceValidationFunction() {
         var price = document.getElementById('price')
         var priceErrPara = document.getElementById("price-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
@@ -93,7 +97,7 @@ class CreateProductComponent extends Component {
             } else { priceErrPara.style.display = 'block' }
         })
     }
-    urlValidationFunction() {//do poprawki wszystko xD
+    urlValidationFunction() {
         var url = document.getElementById('url')
         var urlErrPara = document.getElementById("url-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
