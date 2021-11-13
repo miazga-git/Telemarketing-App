@@ -10,3 +10,5 @@ zmiana w index.html (frontend) - dodaję bootstrap - taką bibliotekę do design
 4.Instalacja modułu axios: npm install axios --save
 
 5.instalacja modułów do routingu: npm install react-router-dom
+
+6.https://www.getpapercss.com/ - style aplikacji
