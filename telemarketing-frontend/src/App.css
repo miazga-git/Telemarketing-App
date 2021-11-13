@@ -42,17 +42,18 @@
 
 .submit_button {
     background-color: #0056ff;
-    padding-top: 12px;
+    padding-top: 0px;
     padding-bottom: 12px;
     padding-left: 24px;
     padding-right: 24px;
     font-size: 18px;
     color: white;
     border: none;
+    float: left;
 }
 .cancel_button {
     background-color: red;
-    padding-top: 12px;
+    padding-top: 0px;
     padding-bottom: 12px;
     padding-left: 24px;
     padding-right: 24px;
@@ -60,6 +61,7 @@
     font-size: 18px;
     color: white;
     border: none;
+    float: left;
 }
 .input_box {
     font-size: 18px;
@@ -76,7 +78,8 @@
     width: 280px;
     height: 170px;
     padding-left: 40px;
-
+    position:center;
+    margin: auto;
 }
 
 #input_wrapper {
@@ -359,4 +362,51 @@
 }
 .table_color{
     background-color: aliceblue;
+}
+/* Dropdown Button */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

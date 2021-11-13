@@ -39,7 +39,7 @@ class BasketAnalysisComponent extends Component {
             <div className="row">
                 <div style={{ marginLeft: "60px" }}>
                     <h1 style={{ textAlign: "center" }}> The customer {this.state.client.name} {this.state.client.surname} may also be interested in purchasing the following products:</h1>
-                    <div style={{ marginLeft: "60px"}}>
+                    <div style={{ marginLeft: "20px"}}>
                         {this.state.products.map(
                             prod =>
                                 <div class="card" style={{ width: "20rem", float: "left", marginLeft: "20px", marginTop: "20px" }}>
@@ -64,7 +64,7 @@ class BasketAnalysisComponent extends Component {
                 </div>
                 <div style={{ marginTop: "25px" }}>
                     <div className="row" >
-                        <button style={{ clear: "both", display: "block", textAlign: "center" }} className="btn btn-outline-danger" onClick={() => this.goMainPanel()}> Not this time</button>
+                        <button style={{ clear: "both", display: "block", textAlign: "center", marginLeft:"70px" }} className="btn btn-outline-danger" onClick={() => this.goMainPanel()}> Not this time</button>
                     </div>
                 </div>
 

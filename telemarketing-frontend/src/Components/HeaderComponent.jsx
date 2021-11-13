@@ -41,16 +41,24 @@ class HeaderComponent extends Component {
                     <header>
                         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                             <div><a className="navbar-brand">Aplikacja wspierajaca promocje telemarketingowe</a>
-
-                                
-                                <button className="btn btn-info" style={{ marginLeft: "100px" }} onClick={() => this.goMainPanel()}   >Main Panel</button>
-                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goPlannedSelling()}   >Planned Selling</button>
-                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goTransactionsPanel()}   >Transactions Stats</button>
-                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goAddItem()}   >Add Item</button>
-                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goAddClient()}   >Add Client</button>
-                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.logout()}   >Logout</button>
+  
                             </div>
-
+                            <div class="dropdown" style={{ marginLeft: "250px" }}>
+                                <button className="btn btn-info" style={{ marginLeft: "80px" }}>Navigation</button>
+                                <div class="dropdown-content">
+                                    <a href="#"><button className="btn btn-info"  onClick={() => this.goMainPanel()}   >Main Panel</button></a>
+                                    <a href="#"><button className="btn btn-info" onClick={() => this.goPlannedSelling()}   >Planned Selling</button></a>
+                                    <a href="#"><button className="btn btn-info" onClick={() => this.goTransactionsPanel()}   >Transactions Stats</button></a>
+                                </div>
+                            </div>
+                            <div class="dropdown" >
+                                <button className="btn btn-info" style={{ marginLeft: "80px" }}>Add Options</button>
+                                <div class="dropdown-content">
+                                    <a href="#"><button className="btn btn-info"  onClick={() => this.goAddItem()}   >Add Item</button></a>
+                                    <a href="#"><button className="btn btn-info"  onClick={() => this.goAddClient()}   >Add Client</button></a>
+                                </div>
+                            </div>
+                            <button className="btn btn-info" style={{ marginLeft: "80px" }} onClick={() => this.logout()}   >Logout</button>
                         </nav>
                     </header>
                 </div>

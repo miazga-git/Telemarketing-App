@@ -20,8 +20,8 @@ class CallTimeComponent extends Component {
             integerClient: 1,
             integerItem: 1,
             interval: '',
-            freeSecounds: 30,
-            freeMinutes: 5,
+            freeSecounds: 10,
+            freeMinutes: 0,
             discount : 0
 
         }
