@@ -14,7 +14,7 @@ class ListTransactionsComponent extends Component {
     }
 
     componentDidMount() {
-        TransactionService.getTransactions().then((res) => {
+        TransactionService.getNotPlannedTransactions().then((res) => {
             this.setState({ transactions: res.data });
         });
         TransactionService.getStatistics().then((res) => {
@@ -102,7 +102,7 @@ class ListTransactionsComponent extends Component {
                         <tbody>
                             {
                                 this.state.transactions.map(
-                                    transaction =>
+                                    transaction => 
                                         <tr key={transaction.id}>
                                             <td>{transaction.item.name}</td>
                                             <td><img src={transaction.item.url} className="photo" /></td>
@@ -115,12 +115,13 @@ class ListTransactionsComponent extends Component {
                                             <td>{transaction.discount} %</td>
                                             {transaction.successful &&
                                                 <td className="succeed">{(transaction.successful).toString()}</td>
-                                            } 
+                                            }
                                             {!transaction.successful &&
                                                 <td className="defeat">{(transaction.successful).toString()}</td>
-                                            } 
-                                            
+                                            }
+                                        
                                         </tr>
+                                    
                                 )
                             }
 

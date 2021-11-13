@@ -21,11 +21,23 @@ class ProductService {
     getTransactions() {
         return axios.get(TRANSACTIONS_API_BASE_URL);
     }
+    getNotPlannedTransactions() {
+        return axios.get(TRANSACTIONS_API_BASE_URL+ '/notPlanned');
+    }
+    getPlannedTransactions() {
+        return axios.get(TRANSACTIONS_API_BASE_URL + '/planned');
+    }
     getStatistics() {
         return axios.get(TRANSACTIONS_API_BASE_URL+ '/statistics');
     }
     getStatisticsPerItems() {
         return axios.get(TRANSACTIONS_API_BASE_URL + '/statistics/perItems');
+    }
+    getThreeItemsWithBiggestSupport(itemAid) {
+        return axios.get(TRANSACTIONS_API_BASE_URL + '/supportItems/' + itemAid);
+    }
+    deleteTransaction(transactionId) {
+        return axios.delete(TRANSACTIONS_API_BASE_URL + '/' + transactionId);
     }
 }
 

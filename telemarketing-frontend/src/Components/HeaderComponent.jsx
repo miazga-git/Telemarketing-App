@@ -31,6 +31,9 @@ class HeaderComponent extends Component {
     goTransactionsPanel() {
         this.props.history.push('/transactions')
     }
+    goPlannedSelling() {
+        this.props.history.push('/planned-transactions')
+    }
     render() {
       if (localStorage.getItem('token') != undefined) {
             return (
@@ -40,7 +43,8 @@ class HeaderComponent extends Component {
                             <div><a className="navbar-brand">Aplikacja wspierajaca promocje telemarketingowe</a>
 
                                 
-                                <button className="btn btn-info" style={{ marginLeft: "320px" }} onClick={() => this.goMainPanel()}   >Main Panel</button>
+                                <button className="btn btn-info" style={{ marginLeft: "100px" }} onClick={() => this.goMainPanel()}   >Main Panel</button>
+                                <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goPlannedSelling()}   >Planned Selling</button>
                                 <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goTransactionsPanel()}   >Transactions Stats</button>
                                 <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goAddItem()}   >Add Item</button>
                                 <button className="btn btn-info" style={{ marginLeft: "50px" }} onClick={() => this.goAddClient()}   >Add Client</button>

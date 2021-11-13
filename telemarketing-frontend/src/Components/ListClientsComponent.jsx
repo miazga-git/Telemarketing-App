@@ -57,11 +57,8 @@ class ListClientsComponent extends Component {
         this.setState({
             chosenClient: [...this.state.chosenClient, client_copy]
         })
-        console.log("Wybrano klienta", this.state.chosenClient)
-        console.log("Przekazujemy id", client.id)
         sessionStorage.setItem('client' + this.state.integerClient, client.id)
         this.state.integerClient = this.state.integerClient + 1
-        console.log("Integer", this.state.integerClient)
         this.props.history.push('/calltime')
     }
     render() {

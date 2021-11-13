@@ -55,7 +55,12 @@ class CallTimeComponent extends Component {
         let transaction = { itemId: this.state.prod.id, clientId: this.state.client.id, userName: localStorage.getItem("user"), quantity: 1, successful: isSuccessful, discount: this.state.discount };
         TransactionService.createTransaction(transaction).then(res => {
             clearInterval(this.state.interval)
+            if (isSuccessful) {
+                this.props.history.push('/basket-analysis');//iteminfo
+            }
+            else {
                 this.props.history.push('/iteminfo');
+            }
             });
         
 

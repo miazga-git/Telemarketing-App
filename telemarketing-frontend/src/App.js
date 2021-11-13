@@ -11,6 +11,8 @@ import LoginComponent from './Authentication/LoginComponent';
 import RegisterComponent from './Authentication/RegisterComponent';
 import CallTimeComponent from './Components/CallTimeComponent';
 import ListTransactionsComponent from './Components/ListTransactionsComponent';
+import BasketAnalysisComponent from './Components/BasketAnalysisComponent';
+import PlannedTransactionsComponent from './Components/PlannedTransactionsComponent';
 function App() {
   return (
       <div className="tlo_color_fixed"> 
@@ -26,7 +28,10 @@ function App() {
                       <Route path="/clientinfo" component={ListClientsComponent} ></Route>
                       <Route path="/add-client" component={CreateClientComponent} ></Route>
                       <Route path="/calltime" component={CallTimeComponent} ></Route>
+                      <Route path="/basket-analysis" component={BasketAnalysisComponent}></Route>
                       <Route path="/transactions" component={ListTransactionsComponent} ></Route>
+                      <Route path="/planned-transactions" component={PlannedTransactionsComponent}></Route>
+
                       </Switch>
                   </div>
               <FooterComponent />
