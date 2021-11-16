@@ -120,7 +120,7 @@ class CreateClientComponent extends Component {
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         var clientErrPara = document.getElementById("client-err");
         name.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,25}$/;
+            var pattern = /^[\s\p{L}]{3,25}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 nameErrPara.style.display = 'none'
@@ -135,7 +135,7 @@ class CreateClientComponent extends Component {
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         var clientErrPara = document.getElementById("client-err");
         surname.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,25}$/;
+            var pattern = /^[\s\p{L}]{3,25}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 surnameErrPara.style.display = 'none'
@@ -177,7 +177,7 @@ class CreateClientComponent extends Component {
         var stateErrPara = document.getElementById("state-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         state.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,25}$/;
+            var pattern = /^[\s\p{L}]{3,25}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 stateErrPara.style.display = 'none'
@@ -190,7 +190,7 @@ class CreateClientComponent extends Component {
         var streetErrPara = document.getElementById("street-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         street.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,25}$/;
+            var pattern = /^[\s\d/\p{L}]{3,25}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 streetErrPara.style.display = 'none'
@@ -203,7 +203,7 @@ class CreateClientComponent extends Component {
         var cityErrPara = document.getElementById("city-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         city.addEventListener('input', function (e) {
-            var pattern = /^[\w]{3,25}$/;
+            var pattern = /^[\s\p{L}]{3,25}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 cityErrPara.style.display = 'none'
@@ -255,7 +255,7 @@ class CreateClientComponent extends Component {
         var jobErrPara = document.getElementById("job-err");
         //var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         job.addEventListener('input', function (e) {
-            var pattern = /^[\w/ ]{0,30}$/;
+            var pattern = /^[\s/ \p{L}]{0,30}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 jobErrPara.style.display = 'none'
@@ -302,9 +302,9 @@ class CreateClientComponent extends Component {
                                         <p id="state-err"> Please enter a vaild state ( min 3, max 25 letters) </p>
                                     </div>
                                     <div className="form-group">
-                                        <label> Street*: </label>
+                                        <label> Address*: </label>
                                         <input placeholder="Street" id="street" name="street" className="form-control" value={this.state.street} onChange={this.changeStreetHandler} />
-                                        <p id="street-err"> Please enter a vaild street ( min 3, max 25 letters) </p>
+                                        <p id="street-err"> Please enter a vaild address ( min 3, max 25 letters) </p>
                                     </div>
                                     <div className="form-group">
                                         <label> City*: </label>

@@ -21,7 +21,7 @@ class CallTimeComponent extends Component {
             integerItem: 1,
             interval: '',
             freeSecounds: 10,
-            freeMinutes: 0,
+            freeMinutes: 5,
             discount : 0
 
         }
@@ -82,7 +82,7 @@ class CallTimeComponent extends Component {
         } else {
             if (this.state.freeSecounds == 0) {
                 this.state.freeMinutes = this.state.freeMinutes - 1;
-                this.state.freeSecounds = 60;
+                this.state.freeSecounds = 59;
             }
         }
         console.log(this.state.freeSecounds)
@@ -112,8 +112,8 @@ class CallTimeComponent extends Component {
         return (
             <div>
                
-                <div className="row">
-                    <table className="table table-striped table-bordered">
+                <div className="row ">
+                    <table className="table table-striped table-bordered table_color">
 
                         <thead>
                             <tr>
@@ -138,7 +138,7 @@ class CallTimeComponent extends Component {
                         </tbody>
 
                     </table>
-                    <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered table_color">
 
                         <thead>
                             <tr>
@@ -147,7 +147,7 @@ class CallTimeComponent extends Component {
                                 <th>Telephone Number</th>
                                 <th>Email</th>
                                 <th>State</th>
-                                <th>Street</th>
+                                <th>Address</th>
                                 <th>City</th>
                                 <th>Zip</th>
                                 <th>Number Of Children</th>
@@ -177,11 +177,12 @@ class CallTimeComponent extends Component {
                         </tbody>
 
                     </table>
-                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-success" onClick={() => this.saveTransaction(true)}> I did it!</button>
-                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-warning" onClick={() => this.addDiscount()}> Give 20% discount</button>
+                    <div className="row table_color2" style={{ marginLeft: "0px" }}>
+                        <button style={{ marginTop: "20px", marginBottom: "40px", backgroundColor: "green"}} className="btn btn-info" onClick={() => this.saveTransaction(true)}> I did it!</button>
+                        <button style={{ marginTop: "20px", marginBottom: "40px", backgroundColor: "yellow" }} className="btn btn-info" onClick={() => this.addDiscount()}> Give 20% discount</button>
                     <p id="discount-info"> Discount added to transaction </p>
-                    <button style={{ marginTop: "20px", marginBottom: "40px" }} className="btn btn-outline-danger" onClick={() => this.saveTransaction(false)}> Maybe next time</button>
-                   
+                        <button style={{ marginTop: "20px", marginBottom: "40px", backgroundColor: "red"}} className="btn btn-info" onClick={() => this.saveTransaction(false)}> Maybe next time</button>
+                    </div>
                     <p id="time"></p>
                 </div>
             </div>

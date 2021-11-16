@@ -62,7 +62,7 @@ class CreateProductComponent extends Component {
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         var itemErrPara = document.getElementById("item-err");
         name.addEventListener('input', function (e) {
-            var pattern = /^[• ∆èØ”πÍÊüøÛ\w\ ]{3,25}$/;
+            var pattern = /^[\s\p{L}]{3,25}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 nameErrPara.style.display = 'none'
@@ -76,7 +76,7 @@ class CreateProductComponent extends Component {
         var descErrPara = document.getElementById("description-err");
         var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         desc.addEventListener('input', function (e) {
-            var pattern = /^[\w\ ,]{6,50}$/;
+            var pattern = /^[\s\p{L}]{6,20}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 descErrPara.style.display = 'none'

@@ -65,7 +65,7 @@ class ListClientsComponent extends Component {
         return (
             <div >
                
-                <div className="row" >
+                <div className="row table_color" >
                     <table className="table table-striped table-bordered" >
 
                         <thead>
@@ -100,7 +100,7 @@ class ListClientsComponent extends Component {
                                 <th>Telephone Number</th>
                                 <th>Email</th>
                                 <th>State</th>
-                                <th>Street</th>
+                                <th>Address</th>
                                 <th>City</th>
                                 <th>Zip</th>
                                 <th>Number Of Children</th>
