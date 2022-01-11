@@ -128,7 +128,7 @@ class ListClientsComponent extends Component {
                                             <td>{client.job}</td>
 
                                             <td>
-                                                <button onClick={() => this.setClient(client)} className="btn btn-info">Wybierz klienta</button>
+                                                <button onClick={() => this.setClient(client)} className="btn btn-info">Choose Client</button>
                                             </td>
                                         </tr>
                                 )

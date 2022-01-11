@@ -51,7 +51,7 @@ class LoginComponent extends Component {
         this.getAccessToken().then(data => {
             console.log("Wszedlem tutaj")
             localStorage.setItem('token', data);
-           // localStorage.setItem('user', this.state.username)
+            localStorage.setItem('user', this.state.username)
             this.props.history.push('/iteminfo')
 
         }).catch(() => {

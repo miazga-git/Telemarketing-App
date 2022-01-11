@@ -51,7 +51,9 @@ class BasketAnalysisComponent extends Component {
                                             <h4 class="card-title">{prod.item.name}</h4>
                                             <h5 class="card-subtitle">{prod.item.description}</h5>
                                             <p class="card-text">Price: {prod.item.price}
-                                                <br></br>Support: {prod.support.toFixed(2)}</p>
+                                                <br></br>Support: {prod.support.toFixed(2)}
+                                                <br></br>Confidence: {prod.confidence.toFixed(2)}
+                                                <br></br>Correlation: {prod.correlation.toFixed(2)}                                            </p>
                                             <button onClick={() => this.planSelling(prod.item, prod.support)} className="btn btn-info">Plan Selling</button>
 
                                         </div>
