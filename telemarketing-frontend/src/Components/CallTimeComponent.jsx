@@ -1,14 +1,9 @@
-// JavaScript source code
+
 import React, { Component } from 'react'
 import ClientService from '../Services/ClientService'
 import ProductService from '../Services/ProductService'
 import TransactionService from '../Services/TransactionService'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-} from "react-router-dom";
+
 
 
 class CallTimeComponent extends Component {
@@ -32,8 +27,12 @@ class CallTimeComponent extends Component {
     }
 
     componentDidMount() {
-
-
+        if (!localStorage.getItem('token')) {
+            console.log("UNAUTHORIZED")
+            this.props.history.push('/')
+        } else {
+            this.timer()
+        }
         ProductService.getProduct(sessionStorage.getItem('item' + this.state.integerItem)).then((res) => {
             this.setState({ prod: res.data });
             console.log("Response:"+res.data)
@@ -46,18 +45,17 @@ class CallTimeComponent extends Component {
         });
         this.state.integerClient = this.state.integerClient + 1
 
-        this.timer()
+        
     }
 
     saveTransaction(isSuccessful){
-        //e.preventDefault();
         console.log(this.state.discount)
         let transaction = { itemId: this.state.prod.id, clientId: this.state.client.id, userName: localStorage.getItem("user"), quantity: 1, successful: isSuccessful, discount: this.state.discount };
         console.log(transaction)
         TransactionService.createTransaction(transaction).then(res => {
             clearInterval(this.state.interval)
             if (isSuccessful) {
-                this.props.history.push('/basket-analysis');//iteminfo
+                this.props.history.push('/basket-analysis');
             }
             else {
                 this.props.history.push('/iteminfo');

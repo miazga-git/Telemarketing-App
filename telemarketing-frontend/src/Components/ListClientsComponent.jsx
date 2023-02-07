@@ -1,13 +1,7 @@
-// JavaScript source code
 import React, { Component } from 'react'
 import ClientService from '../Services/ClientService'
 import ProductService from '../Services/ProductService'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-} from "react-router-dom";
+
 
 
 class ListClientsComponent extends Component {
@@ -23,29 +17,21 @@ class ListClientsComponent extends Component {
     }
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/')
+        }
         ClientService.getClients().then((res) => {
             this.setState({ clients: res.data });
         });
 
         this.state.integerItem = 1
-        console.log('item=>' + sessionStorage.getItem('item' + this.state.integerItem))
 
 
         ProductService.getProduct(sessionStorage.getItem('item' + this.state.integerItem)).then((res) => {
             this.setState({ prod: res.data });
-            console.log('item=>wszedl' + res)
         });
         this.state.integerItem = this.state.integerItem + 1
 
-
-
-        //this.setState({ item: this.props.chosenItem })
-        //this.state.item = sessionStorage.getItem('klucz')<--<h1>{item.name}</h1>
-        //console.log('item=>' + this.state.item.id)
-        //console.log('item=>' + this.state.item.name)
-       // console.log('item=>' + this.state.item.description)
-       // console.log('item=>' + this.state.item.url)
-        //console.log('item=>' + this.state.item.price)
 
     }
 

@@ -62,7 +62,6 @@ class RegisterComponent extends Component {
             }).catch (() => {
                 var userErrPara = document.getElementById("user-err");
                 userErrPara.style.display = 'block'
-                //console.log('siema')
                 })
             
         }

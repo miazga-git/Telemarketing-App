@@ -31,6 +31,9 @@ class CreateClientComponent extends Component {
         this.saveItem = this.saveItem.bind(this);
     }
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/')
+        }
         this.nameValidationFunction();
         this.surnameValidationFunction();
         this.telValidationFunction();
@@ -103,7 +106,6 @@ class CreateClientComponent extends Component {
                 email: this.state.email, state: this.state.state, street: this.state.street, city: this.state.city,
                 zip: this.state.zip, numberOfChildren: this.state.numberOfChildren, age: this.state.age, job: this.state.job
             };
-            console.log('item=>' + JSON.stringify(client));
 
             ClientService.createClient(client).then(res => {
                 this.props.history.push('iteminfo');
@@ -227,39 +229,33 @@ class CreateClientComponent extends Component {
     childrenValidationFunction() {
         var children = document.getElementById('children')
         var childrenErrPara = document.getElementById("children-err");
-        //var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         children.addEventListener('input', function (e) {
             var pattern = /^[\d]{0,2}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 childrenErrPara.style.display = 'none'
-                //notNullFieldsErrPara.style.display = 'none'
             } else { childrenErrPara.style.display = 'block' }
         })
     }
     ageValidationFunction() {
         var age = document.getElementById('age')
         var ageErrPara = document.getElementById("age-err");
-        //var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         age.addEventListener('input', function (e) {
             var pattern = /^[\d]{0,2}$/;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 ageErrPara.style.display = 'none'
-                //notNullFieldsErrPara.style.display = 'none'
             } else { ageErrPara.style.display = 'block' }
         })
     }
     jobValidationFunction() {
         var job = document.getElementById('job')
         var jobErrPara = document.getElementById("job-err");
-        //var notNullFieldsErrPara = document.getElementById("notNullFields-err");
         job.addEventListener('input', function (e) {
             var pattern = /^[\s/ \p{L}]{0,30}$/u;
             var currentValue = e.target.value;
             if (pattern.test(currentValue)) {
                 jobErrPara.style.display = 'none'
-                //notNullFieldsErrPara.style.display = 'none'
             } else { jobErrPara.style.display = 'block' }
         })
     }
@@ -297,7 +293,7 @@ class CreateClientComponent extends Component {
                                         <p id="email-err"> Please enter a vaild email</p>
                                     </div>
                                     <div className="form-group">
-                                        <label> State*: </label>{/*tu moze byc blad jak cos*/}
+                                        <label> State*: </label>
                                         <input placeholder="State" id="state" name="state" className="form-control" value={this.state.state} onChange={this.changeStateHandler} />
                                         <p id="state-err"> Please enter a vaild state ( min 3, max 25 letters) </p>
                                     </div>

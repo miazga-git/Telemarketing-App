@@ -17,6 +17,9 @@ class CreateProductComponent extends Component {
         this.saveItem = this.saveItem.bind(this);
     }
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/')
+        }
         this.nameValidationFunction();
         this.descValidationFunction();
         this.priceValidationFunction();
@@ -45,7 +48,6 @@ class CreateProductComponent extends Component {
             fieldsNotNullErrPara.style.display = 'block';
         } else if(nameErrPara.style.display != 'block' && descErrPara.style.display != 'block' && priceErrPara.style.display != 'block' && urlErrPara.style.display != 'block') {
             let item = { name: this.state.name, description: this.state.description, price: this.state.price, url: this.state.url };
-            console.log('item=>' + JSON.stringify(item));
 
             ProductService.createProduct(item).then(res => {
                 this.props.history.push('/iteminfo');

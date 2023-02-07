@@ -13,18 +13,28 @@ class BasketAnalysisComponent extends Component {
     }
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            console.log("UNAUTHORIZED")
+            this.props.history.push('/')
+        }
         console.log("Pobrany item1 to: " + sessionStorage.getItem('item1'))
         TransactionService.getThreeItemsWithBiggestSupport(sessionStorage.getItem('item1')).then((res) => {
+            if (res.status === 401) {
+                console.log("UNAUTHORIZED")
+            }
             this.setState({ products: res.data })
             console.log("Produkty: "+this.state.products)
         })
         ClientService.getClient(sessionStorage.getItem('client1')).then((res) => {
+            if (res.status === 401) {
+                console.log("UNAUTHORIZED")
+            }
             this.setState({ client: res.data });
         });
     }
 
     planSelling(item, support) {
-        let transaction = { itemId: item.id, clientId: this.state.client.id, quantity: 1, planned: 'true' ,support: support};
+        let transaction = { itemId: item.id, clientId: this.state.client.id, userName: localStorage.getItem("user"), quantity: 1, planned: 'true' ,support: support};
         TransactionService.createTransaction(transaction).then(res => {
             clearInterval(this.state.interval)
             this.props.history.push('/iteminfo');

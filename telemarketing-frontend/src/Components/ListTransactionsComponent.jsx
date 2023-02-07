@@ -14,6 +14,9 @@ class ListTransactionsComponent extends Component {
     }
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/')
+        }
         TransactionService.getNotPlannedTransactions().then((res) => {
             this.setState({ transactions: res.data });
         });

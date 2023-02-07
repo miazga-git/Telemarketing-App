@@ -20,7 +20,6 @@ class LoginComponent extends Component {
     }
     componentDidMount() {
         var font = localStorage.getItem('layout')
-        console.log(font);
         this.setState({ font: font })
     }
     cancel() {
@@ -46,16 +45,13 @@ class LoginComponent extends Component {
 
         e.preventDefault();
         if (this.getAccessToken() == null || this.getAccessToken() == '' || this.getAccessToken() == undefined) {
-            console.log("OUT!!!")
         }
         this.getAccessToken().then(data => {
-            console.log("Wszedlem tutaj")
             localStorage.setItem('token', data);
             localStorage.setItem('user', this.state.username)
             this.props.history.push('/iteminfo')
 
         }).catch(() => {
-            console.log("Wyjatek")
             var authErrPara = document.getElementById("auth-err");
             authErrPara.style.display = 'block'
         })
@@ -69,7 +65,6 @@ class LoginComponent extends Component {
 
     render() {
         return (
-           // <body style={{ backgroundColor: "#f2f6ff" }}>
                 <form class="form_style">
                     <h1 class="form_heading">Login</h1>
 
@@ -94,14 +89,6 @@ class LoginComponent extends Component {
 				        </div>
                     </div>
                 </form>
-
-
-                 
-
-
-
-
-        //    </body>
 
         );
     }

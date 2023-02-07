@@ -1,12 +1,5 @@
-// JavaScript source code
 import React, { Component } from 'react'
 import ProductService from '../Services/ProductService'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-} from "react-router-dom";
 
 
 class ListProductsComponent extends Component {
@@ -20,9 +13,12 @@ class ListProductsComponent extends Component {
     }
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/')
+        }
         ProductService.getProducts().then((res) => {
             this.setState({ items: res.data });
-        });
+        })
         this.state.integerItem = 1
     }
     handleCallback = (childData) => {
@@ -36,11 +32,8 @@ class ListProductsComponent extends Component {
         this.setState({
             chosenItem: [...this.state.chosenItem, item_copy]
         })
-        console.log("Wybrano item", this.state.chosenItem)
-        console.log("Przekazujemy id",item.id)
         sessionStorage.setItem('item' + this.state.integerItem, item.id)
         this.state.integerItem = this.state.integerItem+1
-        console.log("Integer", this.state.integerItem)
         this.props.history.push('/clientinfo')
 
     }

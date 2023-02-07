@@ -1,4 +1,3 @@
-// JavaScript source code
 import React, { Component } from 'react'
 import TransactionService from '../Services/TransactionService'
 
@@ -11,6 +10,9 @@ class PlannedTransactionsComponent extends Component {
     }
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/')
+        }
         TransactionService.getPlannedTransactions().then((res) => {
             this.setState({ plannedTransactions: res.data });
         });
