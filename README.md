@@ -4,7 +4,7 @@ The application has been designed so that it can be implemented in the infrastru
 
 In addition, the application has been equipped with mechanisms whose task is to increase the effectiveness of the telemarketer, these are, among others, the function of offering a discount on a given product, the function of statistics, from which the telemarketer can draw conclusions about the effectiveness of attempts to sell products. In addition, while the application is running, an association analysis is carried out together with the recording of subsequent transactions, which suggests which products the customer may want to purchase. 
 
-The application has been secured with authentication and authorization mechanisms based on Json Web To-ken.
+The application has been secured with authentication and authorization mechanisms based on Json Web Token.
 
 ## Functionalities
 - user registration
